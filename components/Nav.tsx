@@ -13,16 +13,15 @@ import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-const drawerWidth = 200;
+import HomeIcon from '@mui/icons-material/Home';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
+import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
+import ComputerIcon from '@mui/icons-material/Computer';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: 'flex-end',
-}));
+const drawerWidth = 200;
 
 export default function PersistentDrawerLeft() {
   const [open, setOpen] = React.useState(false);
@@ -49,7 +48,7 @@ export default function PersistentDrawerLeft() {
           </div>
         </div>
 
-        <div className='flex'>
+        <div className='flex gap-2'>
           <div>
             <SearchIcon />
           </div>
@@ -62,7 +61,7 @@ export default function PersistentDrawerLeft() {
           <div>
             <NotificationsIcon />
           </div>
-          <div>
+          <div className='mr-2'>
             Logo
           </div>
         </div>
@@ -98,15 +97,55 @@ export default function PersistentDrawerLeft() {
 
         <Divider />
 
-        <button>hi</button>
-        <button>hi</button>
-        <button>hi</button>
-        <button>hi</button>
+        <div className='flex flex-col'>
+          <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-10 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
+            <div className='flex items-center gap-2'>
+              <HomeIcon />
+              <div>Home</div>
+            </div>
+          </button>
+          <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
+            <div className='flex items-center gap-2'>
+              <AirportShuttleIcon />
+              <div>Travel</div>
+            </div>
+          </button>
+          <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
+            <div className='flex items-center gap-2'>
+              <FastfoodIcon />
+              <div>Food</div>
+            </div>
+          </button>
+          <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
+            <div className='flex items-center gap-2'>
+              <LibraryMusicIcon />
+              <div>Music</div>
+            </div>
+          </button>
+          <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
+            <div className='flex items-center gap-2'>
+              <SportsBasketballIcon />
+              <div>Sports</div>
+            </div>
+          </button>
+          <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
+            <div className='flex items-center gap-2'>
+              <ComputerIcon />
+              <div>Programming</div>
+            </div>
+          </button>
+          <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
+            <div className='flex items-center gap-2'>
+              <NewspaperIcon />
+              <div>News</div>
+            </div>
+          </button>
+          
+        </div>
 
       </Drawer>
       
-        <DrawerHeader />
-        <div className='mt-16'>
+        <div className='mt-14 mx-2'>
             <Typography paragraph>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
