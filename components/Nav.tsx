@@ -1,7 +1,5 @@
 'use client'
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import {useState} from 'react';
 import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -20,11 +18,13 @@ import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import ComputerIcon from '@mui/icons-material/Computer';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const drawerWidth = 200;
 
 export default function PersistentDrawerLeft() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [extendSearchicon, setExtendSearchicon] = useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -34,39 +34,61 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <div className='fixed bg-white h-10 flex items-center justify-between w-full'>
-        <div className='flex gap-2'>
-          <div>
-            <button className='h-0' onClick={handleDrawerOpen}>
-              <MenuIcon />
-            </button>
-          </div>
-          <div className='w-24'>
-            <Image src={Logo} alt='image' />
-          </div>
-        </div>
+  const extendSearch = () => {
+    setExtendSearchicon(false);
+  }
 
-        <div className='flex gap-2'>
-          <div>
-            <SearchIcon />
+  return (
+    <div className='flex'>
+      { extendSearchicon ?
+      <div className='fixed bg-white h-10 flex items-center justify-between w-full'>
+          <div className='flex gap-2'>
+            <div>
+              <button className='h-0' onClick={handleDrawerOpen}>
+                <MenuIcon />
+              </button>
+            </div>
+            <div className='w-24'>
+              <Image src={Logo} alt='image' />
+            </div>
           </div>
-          <div>
-            <KeyboardVoiceIcon />
+
+          <div className='flex gap-2'>
+              <div>
+                <button onClick={extendSearch}>
+                  <SearchIcon />
+                </button>
+              </div>
+              <div>
+                <KeyboardVoiceIcon />
+              </div>
+              <div>
+                <VideoCallIcon />
+              </div>
+              <div>
+                <NotificationsIcon />
+              </div>
+              <div className='mr-2'>
+                Logo
+              </div>
           </div>
-          <div>
-            <VideoCallIcon />
-          </div>
-          <div>
-            <NotificationsIcon />
-          </div>
-          <div className='mr-2'>
-            Logo
-          </div>
-        </div>
 
       </div>
+      : 
+      <div className='fixed bg-gray-50 h-14 flex items-center w-full'>
+        <div className='flex justify-around w-full'>
+              <button onClick={() => setExtendSearchicon(true)}>
+                <ArrowBackIcon />
+              </button>
+            <form className="max-w-md">
+                <div className="relative">
+                    <input type="search" id="default-search" className="block h-10 w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search ..." required />
+                    <button type="submit" className="text-black absolute end-2.5 bottom-3"><SearchIcon /></button>
+                </div>
+            </form>
+        </div>
+      </div>
+    }
 
       <Drawer
         className='absolute top-0 left-0 z-1'
@@ -174,7 +196,6 @@ export default function PersistentDrawerLeft() {
               posuere sollicitudin aliquam ultrices sagittis orci a.
             </Typography>
         </div>
-
-    </Box>
+    </div>
   );
 }
