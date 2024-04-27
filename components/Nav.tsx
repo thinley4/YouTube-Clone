@@ -40,7 +40,7 @@ export default function PersistentDrawerLeft() {
   return (
     <div>
       { extendSearchicon ?
-      <div className='fixed bg-white h-10 flex items-center justify-between w-full'>
+      <div className='fixed bg-white h-10 flex items-center justify-between w-full '>
           <div className='flex items-center gap-2'>
             <div>
               <button className='h-0' onClick={handleDrawerOpen}>
