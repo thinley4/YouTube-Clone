@@ -6,6 +6,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function TodoList() {
+  //@ts-ignore
   const todoList = useSelector((state: RootState) => state.todoReducer.list);
   const dispatch = useDispatch<AppDispatch>();
   const [todo, setTodo] = React.useState("");

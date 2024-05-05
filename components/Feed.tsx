@@ -20,7 +20,7 @@ function Feed() {
           categoryVideos?.map((e, index) => {
             return (
               <div key={index} style={{ marginTop: index === 0 ? "0px" : "0px" }}>
-                <VideoCard title={e.snippet.title} thumbnail={e.snippet?.thumbnails?.medium?.url} on="d" channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
+                <VideoCard title={e.snippet.title} thumbnail={e.snippet?.thumbnails?.medium?.url} on="" channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
               </div>
             )
           })

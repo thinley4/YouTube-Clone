@@ -38,7 +38,7 @@ export default function PersistentDrawerLeft() {
   }
 
   return (
-    <div>
+    <div className='sticky top-0 z-50'>
       { extendSearchicon ?
       <div className='fixed bg-white h-10 flex items-center justify-between w-full '>
           <div className='flex items-center gap-2'>
@@ -90,7 +90,7 @@ export default function PersistentDrawerLeft() {
     }
 
       <Drawer
-            className='absolute top-0 left-0 z-1'
+            className='sticky top-0 z-50'
             sx={{
               width: drawerWidth,
               flexShrink: 0,
