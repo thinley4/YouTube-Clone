@@ -13,9 +13,11 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import categorySlice from "@/redux/features/categorySlice";
+import videoSlice from "./features/videoSlice";
 export const store = configureStore({
   reducer: {
-    category: categorySlice
+    category: categorySlice,
+    video: videoSlice
   },
 });
 
