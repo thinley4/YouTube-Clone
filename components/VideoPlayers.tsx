@@ -1,16 +1,25 @@
-'use client'
+"use client";
 
-import React from 'react';
-import ReactPlayer from 'react-player';
+import React, { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 
-const VideoPlayer = ({ url }: {url: any}) => {
+const VideoPlayer = ({ url }: { url: any }) => {
+  const [hasWindow, setHasWindow] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasWindow(true);
+    }
+  });
+
   return (
-    <div>
-      <ReactPlayer
-        url={url}
-        controls={true}
-      />
-    </div>
+    <>
+      {hasWindow ? (
+        <ReactPlayer width={360} url={url} controls={true} />
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
   );
 };
 

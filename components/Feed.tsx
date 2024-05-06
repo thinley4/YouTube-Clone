@@ -13,6 +13,7 @@ function Feed() {
     dispatch(getCategoryVideos(`search?part=snippet&q=${id ? id : "Travel"}`))
     document.title = `${id ? id + "- Youtube" : "Home - Youtube"}`
   }, [id])
+
   return (
     <>
         {

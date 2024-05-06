@@ -20,7 +20,7 @@ export const getVideoDetails = createAsyncThunk (
     }
 );
 export const getRelatedVideos = createAsyncThunk(
-    "redux/features/getRelatedVideos",
+    "redux/featuresgetRelatedVideos",
     async(url) => {
         try {
             const {data} = await axios.get(`${base_url}/${url}`, options);
