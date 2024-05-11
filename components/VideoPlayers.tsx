@@ -15,7 +15,7 @@ const VideoPlayer = ({ url }: { url: any }) => {
   return (
     <>
       {hasWindow ? (
-        <ReactPlayer width={360} url={url} controls={true} />
+        <ReactPlayer width="100%" height={500} url={url} controls={true} />
       ) : (
         <p>Loading...</p>
       )}
