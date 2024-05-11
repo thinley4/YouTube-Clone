@@ -15,18 +15,18 @@ function Feed() {
   }, [id])
 
   return (
-    <>
+    <div className='sm:grid grid-cols-2 sm:gap-10 lg:grid-cols-3 xl:grid-cols-4 '>
         {
             //@ts-ignore
           categoryVideos?.map((e, index) => {
             return (
-              <div key={index} style={{ marginTop: index === 0 ? "0px" : "0px" }}>
+              <div key={index} className='pt-5'>
                 <VideoCard title={e.snippet.title} thumbnail={e.snippet?.thumbnails?.medium?.url} on="" channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
               </div>
             )
           })
         }
-    </>
+    </div>
   )
 }
 
