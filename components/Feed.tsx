@@ -5,14 +5,13 @@ import VideoCard from '@/components/VideoCard'
 import { getCategoryVideos } from '@/redux/features/categorySlice'
 import { useDispatch, useSelector } from 'react-redux'
 function Feed() {
-  const { id } = useParams()
   const dispatch = useDispatch()
   //@ts-ignore
   const { categoryVideos } = useSelector((state) => state.category)
   useEffect(() => {//@ts-ignore
-    dispatch(getCategoryVideos(`search?part=snippet&q=${id ? id : "Vacation and travel"}`))
-    document.title = `${id ? id + "- Youtube" : "Home - Youtube"}`
-  }, [id])
+    dispatch(getCategoryVideos(`search?part=snippet&q=${"Vacation and travel"}`))
+    document.title = `${"Home - Youtube"}`
+  }, [])
 
   return (
     <div className='sm:grid grid-cols-2 sm:gap-10 lg:grid-cols-3 xl:grid-cols-4 '>

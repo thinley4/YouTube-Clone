@@ -18,6 +18,7 @@ import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import ComputerIcon from '@mui/icons-material/Computer';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import User from '@/components/assets/userPic.jpg'
 
 const drawerWidth = 200;
 
@@ -40,7 +41,7 @@ export default function PersistentDrawerLeft() {
   return (
     <div className='sticky top-0 z-50'>
       { extendSearchicon ?
-      <div className='fixed bg-white h-10 flex items-center justify-between w-full '>
+      <div className='fixed bg-white h-14 flex items-center justify-between w-full '>
           <div className='flex items-center gap-2'>
             <div>
               <button className='h-0' onClick={handleDrawerOpen}>
@@ -52,8 +53,13 @@ export default function PersistentDrawerLeft() {
             </div>
           </div>
 
+          <div className='hidden sm:flex justify-center sm:h-10 sm:items-center'>
+              <input type="search" id="default-search" className="min-w-[20rem] h-10 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search ..." required />
+              <button type="submit" className="text-black end-2.5 pl-4 bottom-3"><SearchIcon /></button>
+          </div>
+
           <div className='flex gap-2'>
-              <div>
+              <div className='sm:hidden'>
                 <button onClick={extendSearch}>
                   <SearchIcon />
                 </button>
@@ -68,7 +74,7 @@ export default function PersistentDrawerLeft() {
                 <NotificationsIcon />
               </div>
               <div className='mr-2'>
-                Logo
+                <Image className="w-8 h-8 rounded-full" src={User} alt="Rounded avatar" />
               </div>
           </div>
 
