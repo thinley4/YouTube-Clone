@@ -11,9 +11,9 @@ const Video = (props: any) => {
       <Link href={`/watch/${props.videoId}`}>
         <div className="xl:flex">
             <div>
-              <img alt="Video Thumbnail" className='w-full lg:w-60 xl:w-60' src={props.thumbnail} />
+              <img alt="Video Thumbnail" className='w-full lg:w-60' src={props.thumbnail} />
             </div>
-            <div className="xl:pl-4">
+            <div className="xl:pl-4 pt-3 xl:p-0 lg:w-1/2 xl:w-1/2">
               <h3 className='text-[15px]'>{props.title}</h3>
               <div className='sm:mt-1'>
                 <p className='text-[#606060]'>{props.channel}</p>
@@ -42,7 +42,7 @@ function Watch({ params }: { params: any }) {
 
   return (
     <div className="lg:flex">
-        <div className="py-10 px-5 lg:w-3/4">
+        <div className="py-10 px-5 lg:w-full">
             <div>
               <VideoPlayer url={`https://www.youtube.com/watch?v=${params.id}`} />
             </div>
@@ -51,10 +51,10 @@ function Watch({ params }: { params: any }) {
             <div>{videoDetails?.statistics?.likeCount}</div>
             <div>{videoDetails?.statistics?.viewCount}</div>
         </div>
-        <div className='flex flex-col gap-y-4 lg:mt-10'>
+        <div className='flex flex-col gap-y-4 lg:mt-20'>
 
             {
-              relatedVideos?.map((e, index) => {
+              relatedVideos?.map((e: any, index: any) => {
                 return (
                   <Video key={index + 2} thumbnail={e.snippet?.thumbnails?.medium?.url} width="210px" title={e.snippet.title} channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
                 )

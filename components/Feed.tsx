@@ -9,7 +9,7 @@ function Feed() {
   //@ts-ignore
   const { categoryVideos } = useSelector((state) => state.category)
   useEffect(() => {//@ts-ignore
-    dispatch(getCategoryVideos(`search?part=snippet&q=${"Vacation and travel"}`))
+    dispatch(getCategoryVideos(`search?part=snippet&q=${"Traveling vlog"}`))
     document.title = `${"Home - Youtube"}`
   }, [])
 
