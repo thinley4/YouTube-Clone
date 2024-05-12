@@ -1,30 +1,36 @@
 'use client'
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+
+import React, { useRef } from 'react'
 import VideoCard from '@/components/VideoCard'
 import { getCategoryVideos } from '@/redux/features/categorySlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/redux/store'
+import { useAppDispatch, useAppSelector, useAppStore } from '@/lib/hooks'
 function Feed() {
-  const dispatch = useDispatch()
-  //@ts-ignore
-  const { categoryVideos } = useSelector((state) => state.category)
-  useEffect(() => {//@ts-ignore
-    dispatch(getCategoryVideos(`search?part=snippet&q=${"Traveling vlog"}`))
-    document.title = `${"Home - Youtube"}`
-  }, [])
+
+  const dispatch = useAppDispatch()
+  const store = useAppStore()
+  const initialized = useRef(false)
+  if (!initialized.current) {
+    //@ts-ignore
+    store.dispatch(getCategoryVideos(`search?part=snippet&q=${"Traveling vlog"}`))
+    initialized.current = true
+  }
+  const { categoryVideos } = useAppSelector((state: RootState) => state.category)
+  
 
   return (
-    <div className='sm:grid grid-cols-2 sm:gap-10 lg:grid-cols-3 xl:grid-cols-4 '>
-        {
-            //@ts-ignore
-          categoryVideos?.map((e, index) => {
-            return (
-              <div key={index} className='pt-5'>
-                <VideoCard title={e.snippet.title} thumbnail={e.snippet?.thumbnails?.medium?.url} on="" channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
-              </div>
-            )
-          })
-        }
+    <div className="px-4 pt-12 sm:flex justify-center w-full">
+      <div className='sm:grid grid-cols-2 sm:gap-10 lg:grid-cols-3 xl:grid-cols-4 '>
+          {
+            categoryVideos?.map((e: any, index) => {
+              return (
+                <div key={index} className='pt-5'>
+                  <VideoCard title={e.snippet.title} thumbnail={e.snippet?.thumbnails?.medium?.url} channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
+                </div>
+              )
+            })
+          }
+      </div>
     </div>
   )
 }

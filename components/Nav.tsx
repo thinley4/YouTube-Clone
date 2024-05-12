@@ -1,4 +1,5 @@
 'use client'
+
 import {useState} from 'react';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
@@ -10,15 +11,9 @@ import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-import HomeIcon from '@mui/icons-material/Home';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
-import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
-import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
-import ComputerIcon from '@mui/icons-material/Computer';
-import NewspaperIcon from '@mui/icons-material/Newspaper';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import User from '@/components/assets/userPic.jpg'
+import Icons from './Icons';
 
 const drawerWidth = 200;
 
@@ -109,7 +104,7 @@ export default function PersistentDrawerLeft() {
             anchor="left"
             open={open}
           >
-            <div className='h-10 flex items-center'>
+            <div className='h-14 flex items-center'>
               <div className='flex gap-2'>
                 <div>
                   <button className='h-0' onClick={handleDrawerClose}>
@@ -125,49 +120,7 @@ export default function PersistentDrawerLeft() {
             <Divider />
 
             <div className='flex flex-col'>
-                  <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-10 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
-                    <div className='flex items-center gap-2'>
-                      <HomeIcon />
-                      <div>Home</div>
-                    </div>
-                  </button>
-                  <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
-                    <div className='flex items-center gap-2'>
-                      <AirportShuttleIcon />
-                      <div>Travel</div>
-                    </div>
-                  </button>
-                  <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
-                    <div className='flex items-center gap-2'>
-                      <FastfoodIcon />
-                      <div>Food</div>
-                    </div>
-                  </button>
-                  <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
-                    <div className='flex items-center gap-2'>
-                      <LibraryMusicIcon />
-                      <div>Music</div>
-                    </div>
-                  </button>
-                  <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
-                    <div className='flex items-center gap-2'>
-                      <SportsBasketballIcon />
-                      <div>Sports</div>
-                    </div>
-                  </button>
-                  <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
-                    <div className='flex items-center gap-2'>
-                      <ComputerIcon />
-                      <div>Programming</div>
-                    </div>
-                  </button>
-                  <button className=' text-gray-900 bg-white focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-5 me-2'>
-                    <div className='flex items-center gap-2'>
-                      <NewspaperIcon />
-                      <div>News</div>
-                    </div>
-                  </button>
-              
+                  <Icons />
             </div>
 
       </Drawer>

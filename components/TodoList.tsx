@@ -30,6 +30,12 @@ function TodoList() {
     dispatch(toggleTodo(id));
   };
 
+  interface Props {
+    id: number,
+    name: string,
+    done: boolean
+  }
+
   return (
     <div>
       <input
@@ -39,17 +45,17 @@ function TodoList() {
         value={todo}
       />
       <button onClick={handleSubmit}>Add</button>
-      {todoList.map((todo) => {
+      {todoList.map(({id, name, done}: Props) => {
         return (
-          <div key={todo.id} className="flex">
+          <div key={id} className="flex">
             <input
               type="checkbox"
-              checked={todo.done}
-              onChange={() => handleToggle(todo.id)}
+              checked={done}
+              onChange={() => handleToggle(id)}
             />
-            {todo.name}
+            {name}
 
-            <button onClick={() => handleDelete(todo.id)} className="ml-auto">
+            <button onClick={() => handleDelete(id)} className="ml-auto">
               🗑️
             </button>
           </div>

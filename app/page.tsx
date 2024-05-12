@@ -1,11 +1,11 @@
 import TodoList from "@/components/TodoList";
-import Landing from "@/components/Landing";
+import Feed from "@/components/Feed";
 
 export default function Home() {
   return (
     <div>
       {/* <TodoList /> */}
-      <Landing />
+      <Feed />
     </div>
   );
 }

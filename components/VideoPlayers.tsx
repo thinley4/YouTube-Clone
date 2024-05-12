@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
-const VideoPlayer = ({ url }: { url: any }) => {
+const VideoPlayer = ({ url }: { url: string }) => {
   const [hasWindow, setHasWindow] = useState(false);
 
   useEffect(() => {
