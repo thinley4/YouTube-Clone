@@ -14,12 +14,17 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import User from '@/components/assets/userPic.jpg'
 import Icons from './Icons';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const drawerWidth = 200;
 
 export default function PersistentDrawerLeft() {
   const [open, setOpen] = useState(false);
   const [extendSearchicon, setExtendSearchicon] = useState(true);
+  const [searchValue, setSearchValue] = useState("");
+
+  const router =  useRouter();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -33,6 +38,11 @@ export default function PersistentDrawerLeft() {
     setExtendSearchicon(false);
   }
 
+  const handleOnSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    router.push(`/search/${searchValue}`)
+  }
+
   return (
     <div className='sticky top-0 z-50'>
       { extendSearchicon ?
@@ -43,14 +53,16 @@ export default function PersistentDrawerLeft() {
                 <MenuIcon />
               </button>
             </div>
-            <div className='w-24'>
+            <Link href={'/'} className='w-24'>
               <Image src={Logo} alt='image' />
-            </div>
+            </Link>
           </div>
 
           <div className='hidden sm:flex justify-center sm:h-10 sm:items-center'>
-              <input type="search" id="default-search" className="min-w-[20rem] h-10 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search ..." required />
-              <button type="submit" className="text-black end-2.5 pl-4 bottom-3"><SearchIcon /></button>
+              <form onSubmit={handleOnSubmit}>
+                <input onChange={(e) => setSearchValue(e.target.value)} type="search" id="default-search" className="min-w-[20rem] h-10 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search ..." required />
+                <button type="submit" className="text-black end-2.5 pl-4 bottom-3"><SearchIcon /></button>
+              </form>
           </div>
 
           <div className='flex gap-2'>
@@ -80,9 +92,9 @@ export default function PersistentDrawerLeft() {
               <button onClick={() => setExtendSearchicon(true)}>
                 <ArrowBackIcon />
               </button>
-            <form className="max-w-md">
+            <form onSubmit={handleOnSubmit} className="max-w-md">
                 <div className="relative">
-                    <input type="search" id="default-search" className="block h-10 w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search ..." required />
+                    <input onChange={(e) => setSearchValue(e.target.value)} type="search" id="default-search" className="block h-10 w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search ..." required />
                     <button type="submit" className="text-black absolute end-2.5 bottom-3"><SearchIcon /></button>
                 </div>
             </form>

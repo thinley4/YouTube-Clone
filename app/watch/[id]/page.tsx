@@ -23,8 +23,8 @@ const Video = ({videoId, thumbnail, title, channel}: Props) => {
             <div>
               <Image width={100} height={100} alt="Video Thumbnail" className='w-full lg:w-60' src={thumbnail} />
             </div>
-            <div className="xl:pl-4 pt-3 xl:p-0 lg:w-1/2 xl:w-1/2">
-              <h3 className='text-[15px]'>{title}</h3>
+            <div className="xl:pl-4 pt-3 xl:p-0 lg:w-60 xl:w-1/2">
+              <div className='text-[15px]'>{title}</div>
               <div className='sm:mt-1'>
                 <p className='text-[#606060]'>{channel}</p>
               </div>

@@ -6,8 +6,7 @@ const base_url = "https://youtube-v31.p.rapidapi.com";
 const initialState = {
   selectedCategory: "Home",
   categoryVideos: [],
-  isLoading: false,
-  sidebarExtend: false,
+  isLoading: false
 };
 export const getCategoryVideos = createAsyncThunk(
   "redux/features/categorySlice",
@@ -27,10 +26,7 @@ const categorySlice = createSlice({
   reducers: {
     setSelectedCategory: (state, { payload }) => {
       state.selectedCategory = payload;
-    },
-    setSidebarExtendedValue: (state, { payload }) => {
-      state.sidebarExtend = payload;
-    },
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -47,6 +43,6 @@ const categorySlice = createSlice({
   },
 });
 
-export const { setSelectedCategory, setSidebarExtendedValue } =
+export const { setSelectedCategory } =
   categorySlice.actions;
 export default categorySlice.reducer;

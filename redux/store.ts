@@ -14,13 +14,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import categorySlice from "@/redux/features/categorySlice";
 import videoSlice from "./features/videoSlice";
+import searchSlice from "./features/searchSlice";
 
 
 export const store = () => {
   return configureStore({
     reducer: {
       category: categorySlice,
-      video: videoSlice
+      video: videoSlice,
+      search: searchSlice,
     }
   })
 }
