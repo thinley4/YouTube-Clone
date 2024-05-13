@@ -13,6 +13,7 @@ export const getCategoryVideos = createAsyncThunk(
   async (url) => {
     
     try {
+      
       const { data } = await axios.get(`${base_url}/${url}`, options);
       return data.items;
     } catch (error) {
